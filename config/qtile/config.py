@@ -4,20 +4,18 @@
 import os
 import subprocess
 
-
-from typing import List
-
 from libqtile import hook
-from libqtile import bar, layout, widget
-from libqtile import extension
 
-from libqtile.layout.xmonad import MonadTall
-from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
+from libqtile.layout.xmonad import MonadTall
+from libqtile.layout.columns import Columns
+from libqtile.layout.floating import Floating
 
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-from libqtile.dgroups import simple_key_binder
+
+from colors import catppuccin
+from bar import bar
 
 # Autostart Hook
 
@@ -45,24 +43,6 @@ volumeUnmute    = "pamixer --unmute" # Unmute
 rofiLauncher    = "rofi -show drun -show-icons" # Rofi Launcher
 powerMenu       = "rofi -show session-menu -modi session-menu:~/.scripts/rofi-power-menu --choices=shutdown/reboot/logout/lockscreen" # Power Menu
 wall_changer    = os.path.expanduser("~/.scripts/feh-randomize.sh")
-# Colors
-
-bg        = "#1e1e2e"
-fg        = "#cdd6f4"
-inactive  = "#45475a"
-red       = "#f38ba8"
-blue      = "#89b4fa"
-green     = "#a6e3a1"
-yellow    = "#f9e2af"
-pink      = "#f5c2e7"
-mauve     = "#cba6f7"
-flamingo  = "#f2cdcd"
-rosewater = "#f5e0dc"
-teal      = "#94e2d5"
-lavander  = "#b4befe"
-sky       = "#89dceb"
-sapphire  = "74c7ec"
-peach     = "#fab387"
 
 keys = [
     
@@ -173,197 +153,25 @@ keys.extend([
 # Layouts:
     
 layouts = [
-    layout.MonadTall(
+    MonadTall(
         border_focus='#a6e3a1',
         border_normal='#45475a',
         border_on_single=False,
         border_width=2,
         margin=10,
         ),
-    layout.Columns(
+    Columns(
         border_focus='#a6e3a1',
         border_normal='#45475a',
         border_width=2,
         margin=10,
         ),
-    layout.Max(),
-    
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
-]
+    Max(),
 
-# Default Settings for Widgets:
-
-widget_defaults = dict(
-    font=myFont,
-    fontsize=13,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
-
-# Bar:
-
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
-                # Workspaces
-                widget.GroupBox(
-                    highlight_method='text',
-                    this_current_screen_border=green,
-                    highlight_color=green,
-                    active=mauve,
-                    inactive_color=inactive,
-                    foreground=inactive,
-                    background=bg,
-                    spacing=5,
-                    fontsize=13,
-                    padding=3,
-                    disable_drag=True,
-                    hide_unused=True,
-                ),
-
-                # Current Layout
-                widget.CurrentLayoutIcon(
-                    background=bg,
-                    scale=0.5,
-                    padding=10,
-                ),
-
-                # Name of the window
-                widget.WindowName(
-                    background=bg,
-                    foreground=teal,
-                    font=myTitleFont,
-                    fontsize=13,
-                ),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                
-               # CPU
-                widget.TextBox(
-                    background=bg,
-                    foreground=pink,
-                    text='󰘚',
-                    fontsize=15,
-                ),
-                widget.CPU(
-                    background=bg,
-                    foreground=pink,
-                    format='{load_percent}%',
-                    padding=5,
-                ),
-
-                # CPU Temperature
-                widget.TextBox(
-                    background=bg,
-                    foreground=green,
-                    text='',
-                    fontsize=15,
-                ),
-                widget.ThermalZone(
-                    background=bg,
-                    high=70,
-                    crit=80,
-                    fgcolor_crit=red,
-                    fgcolor_high=yellow,
-                    fgcolor_normal=green,
-                    zone='/sys/class/thermal/thermal_zone0/temp',
-                    update_interval=2,
-                    padding=5
-                ),
-
-                # RAM
-                widget.TextBox(
-                    background=bg,
-                    foreground=peach,
-                    text='󰍛',
-                    fontsize=15,
-                ),
-                widget.Memory(
-                    background=bg,
-                    foreground=peach,
-                    format='{MemUsed: .0f}{mm}',
-                    measure_mem='M',
-                    padding=5,
-                    fmt='{}',
-                ),
-                
-                # Volume
-                widget.TextBox(
-                    background=bg,
-                    foreground=mauve,
-                    text='󰓃',
-                    fontsize=15,
-                    padding=5,
-                ),
-                widget.PulseVolume(
-                    background=bg,
-                    foreground=mauve,
-                    get_volume_command='pamixer --get-volume',
-                    padding=5,
-                    update_interval=0.1,
-                ),
-
-                # Time and Date
-                widget.TextBox(
-                    background=bg,
-                    foreground=blue,
-                    text='󰃰',
-                    fontsize=15,
-                    padding=5,
-                ),
-                widget.Clock(
-                    format="%d/%m %A %H:%M",
-                    background=bg,
-                    foreground=blue,
-                    padding=5,
-                ),
-               
-                # System Trayer
-                widget.Systray(
-                    background=bg,
-                    padding=5,
-                    icon_size=20,
-                ),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
-    ),
-]
-
-# Drag floating layouts.
-
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
-]
-
-dgroups_key_binder = None # Turn off, if using simple keys
-dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
-floating_layout = layout.Floating(
-    float_rules=[
+    Floating(
+     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
+        *Floating.default_float_rules,
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
@@ -372,16 +180,40 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
+]
+# Drag floating layouts.
+
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
+]
+
+widget_defaults = dict(
+    font=myFont,
+    fontsize=13,
+    padding=10,
+    background=catppuccin['bg'],
+)
+
+extension_defaults = widget_defaults.copy()
+
+# Bar:
+
+screens = [
+    Screen(top=bar)
+]
+
+# Defaluts:
+
+dgroups_key_binder = None # Turn off, if using simple keys
+dgroups_app_rules = []  # type: list
+follow_mouse_focus = True
+bring_front_click = ''
+cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
-
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
-
-wl_input_rules = None
 wmname = "Qtile"
