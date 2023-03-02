@@ -70,7 +70,7 @@ bar = Bar([
     right_arrow(catppuccin['peach'], catppuccin['red']),
     
     Memory(
-        format='󰍛 {MemUsed: .0f}{mm}',
+        format=' {MemUsed: .0f}{mm}',
         measure_mem='M',
         background=catppuccin['peach'],
         foreground=catppuccin['bg'],
@@ -78,7 +78,8 @@ bar = Bar([
     right_arrow(catppuccin['mauve'], catppuccin['peach']),
 
     PulseVolume(
-        emoji=True,
+        fmt='󰓃 {:>4}',
+        #emoji=True,
         background=catppuccin['mauve'],
         foreground=catppuccin['bg'],
         update_interval=0.1,
