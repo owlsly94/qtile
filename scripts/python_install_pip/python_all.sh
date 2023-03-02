@@ -15,3 +15,4 @@ pip3 install pywhatkit
 pip3 install wikipedia
 pip3 install django
 pip3 install psutil
+pip3 install virtualenv
