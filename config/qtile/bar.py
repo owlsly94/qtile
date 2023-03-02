@@ -10,7 +10,6 @@ from libqtile.widget.systray import Systray
 from libqtile.widget.windowname import WindowName
 from libqtile.widget.thermal_zone import ThermalZone
 from libqtile.widget.pulse_volume import PulseVolume
-from libqtile.widget.open_weather import OpenWeather
 
 # Imports from Customs
 
@@ -21,6 +20,7 @@ BAR_HEIGHT = 24
 
 bar = Bar([
     
+    # Workspace icons: 
     GroupBox(
         disable_drag=True,
         active=catppuccin['mauve'],
@@ -33,30 +33,41 @@ bar = Bar([
         this_current_screen_border=catppuccin['green'],
         ),
     
+    # Front arrow:
     right_arrow(catppuccin['green'], catppuccin['bg']),
     
+    # Current Layout name:
     CurrentLayout(
         background=catppuccin['green'],
         foreground=catppuccin['bg'],
         margin=10,
         ),
+
+    # Back arrow:
     right_arrow(catppuccin['bg'], catppuccin['green']),
 
+    # Running program name:
     WindowName(
         background=catppuccin['bg'],
         foreground=catppuccin['fg'],
         font='Comic Mono',
         fontsize='13'
         ),
-    
+
+    # Front arrow:
     right_arrow(catppuccin['mauve'], catppuccin['bg']),
+    
+    # CPU Usage:
     CPU(
         format='󰘚 {load_percent}%',
         background=catppuccin['mauve'],
         foreground=catppuccin['bg']
         ),
+    
+    # Back arrow:
     right_arrow(catppuccin['blue'], catppuccin['mauve']),
 
+    # CPU Temperature:
     ThermalZone(
         format=' {temp}°C',
         background=catppuccin['blue'],
@@ -68,16 +79,22 @@ bar = Bar([
         zone='/sys/class/thermal/thermal_zone0/temp',
         update_interval=2,
         ),
+
+    # Front arrow:
     right_arrow(catppuccin['green'], catppuccin['blue']),
     
+    # RAM Memory:
     Memory(
         format=' {MemUsed: .0f}{mm}',
         measure_mem='M',
         background=catppuccin['green'],
         foreground=catppuccin['bg'],
         ),
+
+    # Back arrow:
     right_arrow(catppuccin['yellow'], catppuccin['green']),
 
+    # Volume with Pulse Audio:
     PulseVolume(
         fmt='󰓃 {:>4}',
         #emoji=True,
@@ -85,22 +102,28 @@ bar = Bar([
         foreground=catppuccin['bg'],
         update_interval=0.1,
         ),
+
+    # Front arrow:
     right_arrow(catppuccin['peach'], catppuccin['yellow']),
 
+    # Date:
     Clock(
-        format='󰃰 %d/%m %A %H:%M',
+        format=' %a%e-%b',
         background=catppuccin['peach'],
         foreground=catppuccin['bg'],
         ),
+
+    # Back arrow:
     right_arrow(catppuccin['red'], catppuccin['peach']),
 
-    OpenWeather(
-        format='{location_city}: {main_temp} °{units_temperature}',
-        cityid='787657',
-        update_interval=3600,
+    # Clock:
+    Clock(
+        format=' %H:%M',
         background=catppuccin['red'],
         foreground=catppuccin['bg'],
         ),
+
+    # Front arrow
     right_arrow(catppuccin['bg'], catppuccin['red']),
 
     Systray(
