@@ -65,6 +65,7 @@ programs = [
         'network-manager-applet',
         'neovim',
         'python-django',
+        'python-mysqlclient',
         'jre-openjdk',
         'jdk-openjdk',
         ]
