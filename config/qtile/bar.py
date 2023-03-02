@@ -10,6 +10,7 @@ from libqtile.widget.systray import Systray
 from libqtile.widget.windowname import WindowName
 from libqtile.widget.thermal_zone import ThermalZone
 from libqtile.widget.pulse_volume import PulseVolume
+from libqtile.widget.open_weather import OpenWeather
 
 # Imports from Customs
 
@@ -91,7 +92,17 @@ bar = Bar([
         background=catppuccin['peach'],
         foreground=catppuccin['bg'],
         ),
-    right_arrow(catppuccin['bg'], catppuccin['peach']),
+    right_arrow(catppuccin['red'], catppuccin['peach']),
+
+    OpenWeather(
+        format='{location_city}: {main_temp} °{units_temperature}',
+        cityid='787657',
+        update_interval=3600,
+        background=catppuccin['red'],
+        foreground=catppuccin['bg'],
+        ),
+    right_arrow(catppuccin['bg'], catppuccin['red']),
+
     Systray(
         background=catppuccin['bg'],
         iconsize=30,
