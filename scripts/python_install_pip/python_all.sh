@@ -13,3 +13,5 @@ pip3 install pipwin
 pip3 install PyAudio
 pip3 install pywhatkit
 pip3 install wikipedia
+pip3 install django
+pip3 install psutil

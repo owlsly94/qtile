@@ -40,6 +40,7 @@ programs = [
 	    'papirus-folders-catppuccin-git',
 	    'catppuccin-cursors-mocha',
 	    'caffeine-ng',
+        'python-django-docs',
         ]
 
 for program in programs:
