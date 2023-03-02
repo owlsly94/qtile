@@ -48,50 +48,50 @@ bar = Bar([
         fontsize='13'
         ),
     
-    right_arrow(catppuccin['pink'], catppuccin['bg']),
+    right_arrow(catppuccin['mauve'], catppuccin['bg']),
     CPU(
         format='󰘚 {load_percent}%',
-        background=catppuccin['pink'],
+        background=catppuccin['mauve'],
         foreground=catppuccin['bg']
         ),
-    right_arrow(catppuccin['red'], catppuccin['pink']),
+    right_arrow(catppuccin['blue'], catppuccin['mauve']),
 
     ThermalZone(
         format=' {temp}°C',
-        background=catppuccin['red'],
+        background=catppuccin['blue'],
         high=70,
         crit=80,
-        fgcolor_crit=catppuccin['blue'],
+        fgcolor_crit=catppuccin['red'],
         fgcolor_high=catppuccin['yellow'],
         fgcolor_normal=catppuccin['bg'],
         zone='/sys/class/thermal/thermal_zone0/temp',
         update_interval=2,
         ),
-    right_arrow(catppuccin['peach'], catppuccin['red']),
+    right_arrow(catppuccin['green'], catppuccin['blue']),
     
     Memory(
         format=' {MemUsed: .0f}{mm}',
         measure_mem='M',
-        background=catppuccin['peach'],
+        background=catppuccin['green'],
         foreground=catppuccin['bg'],
         ),
-    right_arrow(catppuccin['mauve'], catppuccin['peach']),
+    right_arrow(catppuccin['yellow'], catppuccin['green']),
 
     PulseVolume(
         fmt='󰓃 {:>4}',
         #emoji=True,
-        background=catppuccin['mauve'],
+        background=catppuccin['yellow'],
         foreground=catppuccin['bg'],
         update_interval=0.1,
         ),
-    right_arrow(catppuccin['blue'], catppuccin['mauve']),
+    right_arrow(catppuccin['peach'], catppuccin['yellow']),
 
     Clock(
         format='󰃰 %d/%m %A %H:%M',
-        background=catppuccin['blue'],
+        background=catppuccin['peach'],
         foreground=catppuccin['bg'],
         ),
-    right_arrow(catppuccin['bg'], catppuccin['blue']),
+    right_arrow(catppuccin['bg'], catppuccin['peach']),
     Systray(
         background=catppuccin['bg'],
         iconsize=30,
