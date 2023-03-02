@@ -10,6 +10,7 @@ from libqtile.widget.systray import Systray
 from libqtile.widget.windowname import WindowName
 from libqtile.widget.thermal_zone import ThermalZone
 from libqtile.widget.pulse_volume import PulseVolume
+#from libqtile.widget.image import Image
 
 # Imports from Customs
 
@@ -20,6 +21,14 @@ BAR_HEIGHT = 24
 
 bar = Bar([
     
+    # Logo:
+    #Image(
+        #background=catppuccin['bg'],
+        #filename='/home/stefan/.config/qtile/icons/python.svg',
+        #scale=True,
+        #margin_x=5
+        #),
+
     # Workspace icons: 
     GroupBox(
         disable_drag=True,
