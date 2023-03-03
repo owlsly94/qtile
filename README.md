@@ -57,7 +57,7 @@ cd ~
 ```
 
 ```
-git clone https://github.com:vecitipacijent/laptop.git
+git clone https://github.com/owlsly94/qtile.git
 ```
 
 ```
