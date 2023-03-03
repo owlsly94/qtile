@@ -61,7 +61,7 @@ git clone https://github.com:vecitipacijent/laptop.git
 ```
 
 ```
-cd laptop
+cd qtile
 ```
 
 ```
