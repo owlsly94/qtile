@@ -64,6 +64,8 @@ programs = [
         'networkmanager',
         'network-manager-applet',
         'neovim',
+        'geany',
+        'geany-plugins',
         'python-django',
         'python-mysqlclient',
         'jre-openjdk',
