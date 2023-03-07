@@ -43,6 +43,7 @@ programs = [
         'zenity',
         'zsh-completions',
         'code',
+        'terminus-font',
         'exfat-utils',
         'apache',
         'clang',
