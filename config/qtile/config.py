@@ -30,11 +30,11 @@ mod             = "mod1" # Default Mod Key
 sup             = "mod4" # Default Super Key
 myFont          = "Iosevka Nerd Font" # Default Font
 myTitleFont     = "Comic Mono" # Title Font
-myTerminal      = "st" # Default Terminal
+myTerminal      = "alacritty" # Default Terminal
 myBrowser       = "firefox" # Default Browser
 myFileManager   = "pcmanfm" # Default File Manager
 myEditor        = "code" # Default Editor
-myMusicPlayer   = "st -e mocp" # Default Music Player
+myMusicPlayer   = "alacritty -e mocp" # Default Music Player
 programLauncher = ["dmenu_run", "-fn", myTitleFont, "-nb", "#1f1d2e", "-nf", "#89b4fa", "-sb", "#89b4fa", "-sf", "#1f1d2e"] # Run DMenu
 volumeUp        = "pamixer -i 5" # Volume Up
 volumeDown      = "pamixer -d 5" # Volume Down
@@ -137,10 +137,10 @@ for i in groups:
 # ScartchPads
 
 groups.append(ScratchPad('scratchpad', [
-    DropDown('term', 'st',           width=0.5, height=0.5, x=0.2, y=0.2, opacity=1),
-    DropDown('mocp', 'st -e mocp',   width=0.5, height=0.5, x=0.2, y=0.2, opacity=1),
+    DropDown('term', 'alacritty',           width=0.5, height=0.5, x=0.2, y=0.2, opacity=1),
+    DropDown('mocp', 'alacritty -e mocp',   width=0.5, height=0.5, x=0.2, y=0.2, opacity=1),
     DropDown('paco', 'pavucontrol',  width=0.4, height=0.6, x=0.3, y=0.1, opacity=1),
-    DropDown('rang', 'st -e ranger', width=0.5, height=0.5, x=0.2, y=0.2, opacity=1),
+    DropDown('rang', 'alacritty -e ranger', width=0.5, height=0.5, x=0.2, y=0.2, opacity=1),
     ]))
 
 keys.extend([
