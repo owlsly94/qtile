@@ -11,6 +11,7 @@
 echo "Copyng DWM font"
 sleep 2s
 cd ~/dwm-laptop/font/TTF/
+sudo mkdir -p /usr/share/fonts/TTF
 sudo cp * /usr/share/fonts/TTF/
 echo "DWM font copied to /usr/share/fonts/ directory"
 sleep 3s
