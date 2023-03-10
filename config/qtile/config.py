@@ -29,7 +29,7 @@ def autostart():
 mod             = "mod1" # Default Mod Key
 sup             = "mod4" # Default Super Key
 myFont          = "Iosevka Nerd Font" # Default Font
-myTitleFont     = "Comic Mono" # Title Font
+myTitleFont     = "Iosevka Nerd Font" # Title Font
 myTerminal      = "alacritty" # Default Terminal
 myBrowser       = "firefox" # Default Browser
 myFileManager   = "pcmanfm" # Default File Manager

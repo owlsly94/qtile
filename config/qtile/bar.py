@@ -59,8 +59,8 @@ bar = Bar([
     WindowName(
         background=catppuccin['bg'],
         foreground=catppuccin['fg'],
-        font='Comic Mono',
-        fontsize='13'
+        font='Iosevka Nerd Font',
+        fontsize='14'
         ),
 
     # Front arrow:
