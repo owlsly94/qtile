@@ -53,6 +53,7 @@ programs = [
         'gcc',
         'glibc',
         'nodejs',
+        'hugo',
         'php',
         'php-apache',
         'yarn',
