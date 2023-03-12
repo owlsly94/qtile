@@ -64,3 +64,18 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
+require('lspconfig')['html'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,        
+}
+require('lspconfig')['cssls'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
+require('lspconfig')['volar'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}

@@ -4,6 +4,7 @@ return require'packer'.startup(function()
     use 'nvim-tree/nvim-web-devicons'
     use 'nvim-tree/nvim-tree.lua'
     use 'nvim-lualine/lualine.nvim'
+    use 'norcalli/nvim-colorizer.lua'
     use 'kyazdani42/nvim-web-devicons'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
